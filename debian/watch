@@ -1,0 +1,8 @@
+version=4
+opts=repack,repacksuffix=+dfsg,dversionmangle=auto \
+https://github.com/less/less.js/tags .*/archive/v?(\d[\d\.]+).tar.gz debian
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,ctype=nodejs,component=image-size,pgpmode=none" \
+ https://registry.npmjs.org/image-size https://registry.npmjs.org/image-size/-/image-size-(0.5(?:.[\d\.]+)?)@ARCHIVE_EXT@ ignore

@@ -1,0 +1,18 @@
+Description: make build reproducible
+Author: Chris Lamb <lamby@debian.org>
+Bug-Debian: https://bugs.debian.org/974124
+Forwarded: not-needed
+Reviewed-By: Xavier Guimard <yadd@debian.org>
+Last-Update: 2020-12-15
+
+--- a/packages/less/build/banner.js
++++ b/packages/less/build/banner.js
+@@ -5,7 +5,7 @@
+  * Less - ${ pkg.description } v${ pkg.version }
+  * http://lesscss.org
+  * 
+- * Copyright (c) 2009-${new Date().getFullYear()}, ${ pkg.author.name } <${ pkg.author.email }>
++ * Copyright (c) 2009-${(new Date(process.env.SOURCE_DATE_EPOCH ? (process.env.SOURCE_DATE_EPOCH * 1000) : new Date().getTime())).getFullYear()}, ${ pkg.author.name } <${ pkg.author.email }>
+  * Licensed under the ${ pkg.license } License.
+  *
+  * @license ${ pkg.license }

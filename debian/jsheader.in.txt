@@ -1,0 +1,13 @@
+/*!
+ * LESS - Leaner CSS v@VERSION@
+ * http://lesscss.org
+ *
+ * Copyright (c) 2009-@YEAR@, Alexis Sellier <self@cloudhead.net>
+ * Licensed under the Apache v2 License.
+ *
+ */
+
+ /**
+ * @license Apache v2
+ */
+

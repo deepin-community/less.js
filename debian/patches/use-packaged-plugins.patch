@@ -1,0 +1,77 @@
+Description: Use rollup-plugin-typescript instead of not packaged rollup-plugin-typescript2
+ Remove rollup-plugin-terser usage (could be replaced by uglifyjs.terser)
+ Replace rollup-plugin-node-resolve by @rollup/plugin-node-resolve (forwarded)
+Forwarded: https://github.com/less/less.js/pull/3583
+Reviewed-By: Xavier Guimard <yadd@debian.org>
+Last-Update: 2020-11-09
+
+--- a/packages/less/build/rollup.js
++++ b/packages/less/build/rollup.js
+@@ -1,8 +1,7 @@
+ const rollup = require('rollup');
+-const typescript = require('rollup-plugin-typescript2');
+-const commonjs = require('rollup-plugin-commonjs');
+-const resolve = require('rollup-plugin-node-resolve');
+-const terser = require('rollup-plugin-terser').terser;
++const typescript = require('rollup-plugin-typescript');
++const commonjs = require('@rollup/plugin-commonjs');
++const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve;
+ const banner = require('./banner');
+ const path = require('path');
+ 
+@@ -19,38 +18,14 @@
+             {
+                 file: 'less.js',
+                 format: 'umd'
+-            },
+-            {
+-                file: 'less.min.js',
+-                format: 'umd'
+             }
+         ],
+         plugins: [
+-            resolve(),
++            nodeResolve({moduleDirectories: ['/usr/share/nodejs']}),
+             commonjs(),
+             typescript({
+-                verbosity: 2,
+-                tsconfigDefaults: {
+-                    compilerOptions: {
+-                        allowJs: true,
+-                        sourceMap: true,
+-                        target: 'ES5'
+-                    }
+-                },
+                 include: [ '*.ts', '**/*.ts', '*.js', '**/*.js' ],
+                 exclude: ['node_modules'] // only transpile our source code
+-            }),
+-            terser({
+-                compress: true,
+-                include: [/^.+\.min\.js$/],
+-                output: {
+-                    comments: function(node, comment) {
+-                        if (comment.type == "comment2") {
+-                            // preserve banner
+-                            return /@license/i.test(comment.value);
+-                        }
+-                    }
+-                }
+             })
+         ]
+     });
+@@ -63,7 +38,7 @@
+             format: 'umd',
+             name: 'less',
+             banner
+-        }); 
++        });
+     }
+ 
+     if (!args.out || args.out.indexOf('less.min.js') > -1) {
+@@ -83,4 +58,4 @@
+     await buildBrowser();
+ }
+ 
+-build();
+\ No newline at end of file
++build();
