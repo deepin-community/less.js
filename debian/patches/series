@@ -1,2 +1,3 @@
 use-packaged-plugins.patch
 reproducible.patch
+fix-for-mime-2.patch

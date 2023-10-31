@@ -1,3 +1,59 @@
+less.js (3.13.0+dfsg-11) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Apply multi-arch hints. + node-less: Add Multi-Arch: foreign.
+  * Update standards version to 4.6.1, no changes needed.
+
+  [ Yadd ]
+  * Add fix for node-mime 2
+
+ -- Yadd <yadd@debian.org>  Fri, 04 Nov 2022 21:29:21 +0100
+
+less.js (3.13.0+dfsg-10) unstable; urgency=medium
+
+  * Team upload
+  * Fix for recent @rollup/plugin-node-resolve
+
+ -- Yadd <yadd@debian.org>  Fri, 23 Sep 2022 15:26:36 +0200
+
+less.js (3.13.0+dfsg-9) unstable; urgency=medium
+
+  * Team upload
+  * Add build dependency to node-minimist (Closes: #1020146)
+
+ -- Yadd <yadd@debian.org>  Sun, 18 Sep 2022 09:10:43 +0200
+
+less.js (3.13.0+dfsg-8) unstable; urgency=medium
+
+  * Team upload
+  * Drop build dependency to node-typescript-types (Closes: #979803)
+
+ -- Yadd <yadd@debian.org>  Sun, 01 May 2022 12:58:16 +0200
+
+less.js (3.13.0+dfsg-7) unstable; urgency=medium
+
+  * team upload
+
+  * use and build-depend on terser (not uglifyjs.terser)
+
+ -- Jonas Smedegaard <dr@jones.dk>  Thu, 02 Dec 2021 19:35:22 +0100
+
+less.js (3.13.0+dfsg-6) unstable; urgency=medium
+
+  * Team upload
+
+  [ Debian Janitor ]
+  * Use secure URI in Homepage field.
+
+  [ Yadd ]
+  * Fix GitHub tags regex
+  * Update standards version to 4.6.0, no changes needed.
+  * Update nodejs dependency to nodejs:any
+
+ -- Yadd <yadd@debian.org>  Sun, 21 Nov 2021 12:54:18 +0100
+
 less.js (3.13.0+dfsg-5) unstable; urgency=medium
 
   * Add forwarded info to patch

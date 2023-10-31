@@ -1,0 +1,19 @@
+Description: fix for mime 2
+Author: Yadd <yadd@debian.org>
+Forwarded: not-needed
+Last-Update: 2022-11-04
+
+--- a/packages/less/src/less-node/environment.js
++++ b/packages/less/src/less-node/environment.js
+@@ -5,10 +5,7 @@
+         return buffer.toString('base64');
+     },
+     mimeLookup: function (filename) {
+-        return require('mime').lookup(filename);
+-    },
+-    charsetLookup: function (mime) {
+-        return require('mime').charsets.lookup(mime);
++        return require('mime').getType(filename);
+     },
+     getSourceMapGenerator: function getSourceMapGenerator() {
+         return require('source-map').SourceMapGenerator;
