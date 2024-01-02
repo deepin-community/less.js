@@ -1,3 +1,4 @@
-dist/
 debian/lessc.1
 bin/lessc
+packages/less/lib/
+packages/less/dist/
