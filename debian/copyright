@@ -21,7 +21,7 @@ License: Apache-2.0
 Files: debian/*
 Copyright: 2010-2013,2015, Jonas Smedegaard <dr@jones.dk>
            2020, Pirate Praveen <praveen@debian.org>
-           2020, Xavier Guimard <yadd@debian.org>
+           2020, Yadd <yadd@debian.org>
 License: GPL-3+
 
 Files: image-size/*

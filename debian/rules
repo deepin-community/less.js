@@ -9,7 +9,7 @@ override_dh_auto_build:
 	cd packages/less && tsc
 	cd packages/less && node build/rollup.js --dist
 	help2man --no-discard-stderr -n "Compiler for Less (Leaner Style Sheets) extension for CSS" "node $(CURDIR)/packages/less/bin/lessc" > debian/lessc.1
-	cd packages/less/dist && uglifyjs.terser -o less.min.js less.js
+	cd packages/less/dist && terser -o less.min.js less.js
 
 override_dh_fixperms:
 	dh_fixperms

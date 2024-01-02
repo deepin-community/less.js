@@ -31,7 +31,7 @@ Last-Update: 2020-11-09
          ],
          plugins: [
 -            resolve(),
-+            nodeResolve({moduleDirectories: ['/usr/share/nodejs']}),
++            nodeResolve({modulePaths: ['/usr/share/nodejs']}),
              commonjs(),
              typescript({
 -                verbosity: 2,
